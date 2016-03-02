@@ -2,10 +2,11 @@ package controllers
 
 import models.{Location, SearchLocation}
 import play.api._
-import play.api.libs.json.Json
+import play.api.libs.json.{JsString, JsValue, JsObject, Json}
 import play.api.mvc._
 import service.Utilities
 import scala.concurrent.ExecutionContext.Implicits.global
+import play.mvc.BodyParser
 
 class Application extends Controller {
 
@@ -25,5 +26,12 @@ class Application extends Controller {
 
   def search = TODO
 
-  def searchMulti = TODO
+
+  def searchMulti = Action async { implicit request =>
+    val jsonValue: JsValue = request.body.asJson.getOrElse(JsString(""))
+    val placeQuery: Option[String] = (jsonValue \ "placeQuery").asOpt[String]
+    Utilities.searchMulti(placeQuery getOrElse "") map {
+      location => Ok(Json.toJson(location))
+    }
+  }
 }

@@ -15,4 +15,8 @@ object Utilities {
   }
 
   def getCount: Future[Int] = LocationDao.getCount
+
+  def searchMulti(placeQuery: String): Future[Seq[SearchLocation]] = {
+    LocationDao.searchMulti(placeQuery)
+  }
 }

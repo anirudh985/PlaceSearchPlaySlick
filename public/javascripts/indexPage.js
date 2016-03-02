@@ -15,14 +15,14 @@
 	    				url : "/searchMulti",
 	    				type: 'POST',
 	    				contentType : "application/json",
-	    				data: JSON.stringify({'locName':searchInput, 'category':searchInput}),
+	    				data: JSON.stringify({'placeQuery':searchInput}),
 	    				success:function(data) {
 	    					$.each(data, function(i, place) {
 	    		                $(".data-contacts-js").append(
 	    		                    "<tr><td>" + place.locName + "</td>" +
 	    		                    "<td>" + place.category + "</td>" +
 	    		                    "<td>" + place.rating + "</td>" +
-	    		                    "<td> <p id='map' onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </td></tr>");
+	    		                    "<td> <u> <p id='map' style='cursor: pointer;'  onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </u> </td></tr>");
 	    		            });
 	    				},
 	    				error: function() {}
@@ -38,7 +38,7 @@
 		                    "<tr><td>" + place.locName + "</td>" +
 		                    "<td>" + place.category + "</td>" +
 		                    "<td>" + place.rating + "</td>" +
-		                    "<td> <p id='map' onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </td></tr>");
+		                    "<td> <u> <p id='map' style='cursor: pointer;'  onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </u> </td></tr>");
 		            });
 		        });
 	    	}
@@ -54,7 +54,7 @@
 	                    "<tr><td>" + place.locName + "</td>" +
 	                    "<td>" + place.category + "</td>" +
 	                    "<td>" + place.rating + "</td>" +
-	                    "<td> <p id='map' onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </td></tr>");
+	                    "<td> <u> <p id='map' style='cursor: pointer;' onClick=initialize("+place.latitude+","+place.longitude+")> Map </p> </u> </td></tr>");
 	            });
 	        });
 	    });

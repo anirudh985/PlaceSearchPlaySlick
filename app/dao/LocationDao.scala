@@ -24,4 +24,11 @@ object LocationDao {
     }
 
     val getCount: Future[Int] = dbConfig.db.run(locations.length.result)
+
+    def searchMulti(placeQuery: String) : Future[Seq[SearchLocation]] = {
+        dbConfig.db.run(locations.
+          filter(x => (x.category.toLowerCase.indexOf(placeQuery.toLowerCase) >= 0)
+                         || (x.locName.toLowerCase.indexOf(placeQuery.toLowerCase) >= 0))
+                .result)
+    }
 }
