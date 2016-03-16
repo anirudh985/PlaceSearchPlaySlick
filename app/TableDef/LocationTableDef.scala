@@ -7,7 +7,7 @@ import slick.driver.MySQLDriver.api._
 /**
   * Created by anirudh on 1/3/16.
   */
-class LocationTableDef(tag: Tag) extends Table[SearchLocation](tag, "LOCATION") {
+class LocationTableDef(tag: Tag) extends Table[SearchLocation](tag, "location") {
 
   def intRowId = column[Long]("int_row_id", O.PrimaryKey, O.AutoInc)
 

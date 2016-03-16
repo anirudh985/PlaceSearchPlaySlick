@@ -1,4 +1,4 @@
-name := """playproject"""
+name := """playslickplacelookup"""
 
 version := "1.0-SNAPSHOT"
 
@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
   ws,
   specs2 % Test,
   "mysql" % "mysql-connector-java" % "5.1.34",
+  "org.postgresql" % "postgresql" % "9.4-1206-jdbc42",
   "com.typesafe.slick" %% "slick" % "3.1.1",
   "com.typesafe.play" %% "play-slick" % "1.1.0"
 )

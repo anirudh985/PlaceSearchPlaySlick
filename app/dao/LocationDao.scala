@@ -5,7 +5,8 @@ import models.SearchLocation
 import play.api.Play
 import play.api.db.slick.DatabaseConfigProvider
 import slick.driver.JdbcProfile
-import slick.driver.MySQLDriver.api._
+//import slick.driver.MySQLDriver.api._
+import slick.driver.PostgresDriver.api._
 import slick.lifted.TableQuery
 import scala.concurrent.Future
 
